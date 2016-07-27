@@ -34,9 +34,9 @@ end
 
 describe file('/usr/local/quast-4.2/quast_test_output/report.txt') do
   it { should exist }
-  its('content') { should match /All statistics are based on contigs of size >= 500 bp, unless otherwise noted/ }
-  its('content') { should match /Reference length/ }
-  its('content') { should match /10000/ }
-  its('content') { should match /NGA50/ }
-  its('content') { should match /1610/ }
+  its('content') { should match(/All statistics are based on contigs of size >= 500 bp, unless otherwise noted/) }
+  its('content') { should match(/Reference length/) }
+  its('content') { should match(/10000/) }
+  its('content') { should match(/NGA50/) }
+  its('content') { should match(/1610/) }
 end
