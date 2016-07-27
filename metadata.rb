@@ -9,5 +9,5 @@ source_url 'https://github.com/EagleGenomics-cookbooks/QUAST'
 issues_url 'https://github.com/EagleGenomics-cookbooks/QUAST/issues'
 
 depends 'build-essential'
-depends 'magic_shell'
 depends 'poise-python', '~> 1.4.0'
+depends 'java'
