@@ -5,10 +5,10 @@ driver:
 
 provisioner:
   name: chef_zero
-  verifier:
-    ruby_bindir: /opt/chefdk/embedded/bin
-    name: inspec
-    format: doc
+
+verifier:
+  name: inspec
+  format: doc
 
 platforms:
   - name: ubuntu-12.04
