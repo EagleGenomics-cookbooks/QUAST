@@ -10,18 +10,7 @@ end
 
 include_recipe 'build-essential'
 
-# here for use by serverspec
-magic_shell_environment 'quast_DIR' do
-  value node['quast']['dir']
-end
-
-magic_shell_environment 'quast_VERSION' do
-  value node['quast']['version']
-end
-
-magic_shell_environment 'quast_INSTALL' do
-  value node['quast']['install_path']
-end
+include_recipe 'java'
 
 # START matplotlib section ----------------------------------------------
 # matplotlib is a python 2D plotting library which produces publication
@@ -58,6 +47,11 @@ end
 execute 'un-tar quast' do
   command "tar xzf #{Chef::Config[:file_cache_path]}/#{node['quast']['filename']} -C #{node['quast']['install_path']}"
   not_if { ::File.exist?("#{node['quast']['dir']}/quast") }
+end
+
+execute './install_full.sh' do
+  cwd node['quast']['dir']
+  not_if { ::File.exist?("#{node['quast']['dir']}/quast.pyc") }
 end
 
 # The executables are python scripts, let's not add in symlinks atm....
