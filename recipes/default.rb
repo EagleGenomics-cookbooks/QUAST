@@ -16,7 +16,7 @@ include_recipe 'java'
 # matplotlib is a python 2D plotting library which produces publication
 # quality figures in a variety of hardcopy formats. It is not needed for
 # QUAST to run but is recommended for drawing plots.
-package ['libpng-devel', 'freetype', 'freetype-devel', 'gcc', 'gcc-c++'] do
+package ['libpng-devel', 'freetype', 'freetype-devel', 'gcc', 'gcc-c++', 'python-matplotlib'] do
   action :install
 end
 
