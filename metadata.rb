@@ -1,4 +1,4 @@
-name 'QUAST'
+name 'quast'
 maintainer 'Eagle Genomics Ltd'
 maintainer_email 'chef@eaglegenomics.com'
 license 'apache2'
