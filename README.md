@@ -16,7 +16,7 @@ Notes
 
 Usage
 =====
-Simply include the recipe wherever you would like it installed, such as a run list (recipe[QUAST]) or a cookbook (include_recipe 'QUAST')
+Simply include the recipe wherever you would like it installed, such as a run list (recipe[quast]) or a cookbook (include_recipe 'quast')
 
 
 ## Testing
