@@ -4,20 +4,60 @@
 #
 # Copyright (c) 2016 Eagle Genomics Ltd, Apache License, Version 2.0.
 
-package ['tar', 'zlib-devel'] do
+include_recipe 'build-essential'
+include_recipe 'apt'
+include_recipe 'java'
+
+package ['tar'] do
   action :install
 end
 
-include_recipe 'build-essential'
-
-include_recipe 'java'
+package 'zlib-devel' do
+  package_name case node['platform_family']
+               when 'rhel'
+                 'zlib-devel'
+               when 'debian'
+                 'zlib1g-dev'
+               end
+end
 
 # START matplotlib section ----------------------------------------------
 # matplotlib is a python 2D plotting library which produces publication
 # quality figures in a variety of hardcopy formats. It is not needed for
 # QUAST to run but is recommended for drawing plots.
-package ['libpng-devel', 'freetype', 'freetype-devel', 'gcc', 'gcc-c++', 'python-matplotlib'] do
+package ['gcc', 'python-matplotlib'] do
   action :install
+end
+
+case node['platform_family']
+when 'debian'
+  deps = %w(
+    libpng-dev
+    libfreetype6
+    libfreetype6-dev
+  )
+when 'rhel'
+  deps = %w(
+    libpng-devel
+    freetype
+    freetype-devel
+    gcc-c++
+  )
+else
+  Chef::Log.fatal("platform family #{node['platform_family']} not supported")
+end
+
+deps.each do |pkg|
+  package pkg
+end
+
+package 'libpng-devel' do
+  package_name case node['platform_family']
+               when 'rhel'
+                 'zlib-devel'
+               when 'debian'
+                 'zlib1g-dev'
+               end
 end
 
 # Python versions older than 2.7.9 will report an SNIMissingWarning when

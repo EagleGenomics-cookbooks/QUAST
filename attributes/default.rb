@@ -9,3 +9,5 @@ default['quast']['url'] = "https://downloads.sourceforge.net/project/quast/#{nod
 default['java']['install_flavor'] = 'oracle'
 default['java']['jdk_version'] = '8'
 default['java']['oracle']['accept_oracle_download_terms'] = true
+
+default['apt']['compile_time_update'] = true
