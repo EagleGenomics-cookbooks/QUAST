@@ -51,15 +51,6 @@ deps.each do |pkg|
   package pkg
 end
 
-package 'libpng-devel' do
-  package_name case node['platform_family']
-               when 'rhel'
-                 'zlib-devel'
-               when 'debian'
-                 'zlib1g-dev'
-               end
-end
-
 # Python versions older than 2.7.9 will report an SNIMissingWarning when
 # trying to install the matplotlib package, therefore specify it here:
 include_recipe 'poise-python'
