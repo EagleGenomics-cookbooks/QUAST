@@ -50,24 +50,6 @@ end
 deps.each do |pkg|
   package pkg
 end
-
-# Python versions older than 2.7.9 will report an SNIMissingWarning when
-# trying to install the matplotlib package, therefore specify it here:
-include_recipe 'poise-python'
-
-python_runtime '2' do
-  version '2.7'
-end
-
-# version 1.8.0 required for matplotlib 1.3.1 to correctly install
-python_package 'numpy' do
-  version '1.8.0'
-end
-
-# Matplotlib Python library for drawing plots, QUAST is tested with 1.3.1
-python_package 'matplotlib' do
-  version '1.3.1'
-end
 # END matplotlib section ------------------------------------------------
 
 remote_file "#{Chef::Config[:file_cache_path]}/#{node['quast']['filename']}" do
