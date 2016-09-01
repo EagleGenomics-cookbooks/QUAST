@@ -66,10 +66,3 @@ execute './install_full.sh' do
   cwd node['quast']['dir']
   not_if { ::File.exist?("#{node['quast']['dir']}/quast.pyc") }
 end
-
-# The executables are python scripts, let's not add in symlinks atm....
-# this symlinks every executable in the install subdirectory to the top of the directory tree
-# so that they are in the PATH
-# execute "find #{node['quast']['dir']} -maxdepth 1 -name '*.py' -executable -type f -exec ln -sf {} . \\;" do
-#   cwd node['quast']['install_path'] + '/bin'
-# end
