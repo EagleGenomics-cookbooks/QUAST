@@ -20,6 +20,7 @@ Usage
 =====
 Simply include the recipe wherever you would like it installed, such as a run list (recipe[quast]) or a cookbook (include_recipe 'quast')
 
+Version 4.2 of QUAST was released under GPL v2 on 21 July 2016. Note that some of build-in third-party tools are not under GPL v2. See [LICENSE](http://quast.bioinf.spbau.ru/LICENSE.txt) for details.
 
 ## Testing
 To test the recipe we use chef test kitchen:
