@@ -66,3 +66,7 @@ execute './install_full.sh' do
   cwd node['quast']['dir']
   not_if { ::File.exist?("#{node['quast']['dir']}/quast.pyc") }
 end
+
+magic_shell_environment 'PATH' do
+  value '$PATH:' + node['quast']['dir']
+end

@@ -10,5 +10,5 @@ issues_url 'https://github.com/EagleGenomics-cookbooks/quast/issues'
 
 depends 'build-essential'
 depends 'java'
-
+depends 'magic_shell'
 depends 'apt'
