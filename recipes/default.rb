@@ -5,7 +5,9 @@
 # Copyright (c) 2016 Eagle Genomics Ltd, Apache License, Version 2.0.
 
 include_recipe 'build-essential'
-include_recipe 'apt'
+
+include_recipe 'apt' if platform?('debian', 'ubuntu')
+
 include_recipe 'java'
 
 package ['tar'] do
