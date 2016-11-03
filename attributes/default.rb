@@ -1,5 +1,5 @@
 # QUAST attributes
-default['quast']['version'] = '4.2'
+default['quast']['version'] = '4.3'
 default['quast']['install_path'] = '/usr/local'
 default['quast']['dir'] = default['quast']['install_path'] + '/' + 'quast-' + default['quast']['version']
 default['quast']['filename'] = "quast-#{node['quast']['version']}.tar.gz"
