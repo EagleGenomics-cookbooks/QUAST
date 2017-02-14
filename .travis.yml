@@ -24,7 +24,7 @@ before_script:
   - eval "$(/opt/chefdk/bin/chef shell-init bash)"
   - chef gem install kitchen-docker
   - "/opt/chefdk/bin/chef exec rake tests"
-script: travis_wait
+script:
   - travis_wait 35 /opt/chefdk/embedded/bin/kitchen verify ${INSTANCE}
 notifications:
   slack:
